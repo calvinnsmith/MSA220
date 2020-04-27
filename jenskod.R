@@ -108,6 +108,8 @@ best <- BIC_cov[14,] # VEE
 # VEE BEST
 gmm_VEE <- Mclust(data[,2:3], 2, modelNames = "VEE")
 fviz_mclust(gmm_VEE, geom = "point", main = "VEE")
+correct_VEE <- length(which(gmm_VEE$classification == comp_gender))/length(comp_gender)
+
 
 # VEV 2nd BEST
 gmm_VEV <- Mclust(data[,2:3], 2, modelNames = "VEV")
@@ -120,10 +122,13 @@ fviz_mclust(gmm_VVE, geom = "point")
 # EEV Intuition
 gmm_EEV <- Mclust(data[,2:3], 2, modelNames = "EEV")
 fviz_mclust(gmm_EEV, geom = "point")
+correct_EEV <- length(which(gmm_EEV$classification == comp_gender))/length(comp_gender)
+
 
 # EEE test
 gmm_EEE <- Mclust(data[,2:3], 2 ,modelNames = "EEE")
-fviz_mclust(gmm_EEE, geom = "point")
+fviz_mclust(gmm_EEE, geom = "point", main = "EEE")
+correct_EEE <- length(which(gmm_EEE$classification == comp_gender))/length(comp_gender)
 
 # EEI
 gmm_EEI <- Mclust(data[,2:3], 2 ,modelNames = "EEI")
